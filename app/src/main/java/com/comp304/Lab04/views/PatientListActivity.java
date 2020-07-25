@@ -71,18 +71,18 @@ public class PatientListActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-        //
+
         adapter.setOnItemClickListener(new PatientAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Patient patient) {
                 Intent intent = new Intent(PatientListActivity.this, PatientUpdateActivity.class);
-                // send these fields to PatientUpdateActivity for update
+                // send patientId back to PatientUpdateActivity for update
                 intent.putExtra(PatientUpdateActivity.EXTRA_PATIENTID, patient.getPatientId());
-                intent.putExtra(PatientUpdateActivity.EXTRA_FIRSTNAME, patient.getFirstName());
+              /*  intent.putExtra(PatientUpdateActivity.EXTRA_FIRSTNAME, patient.getFirstName());
                 intent.putExtra(PatientUpdateActivity.EXTRA_LASTNAME, patient.getLastName());
                 intent.putExtra(PatientUpdateActivity.EXTRA_DEPARTMENT, patient.getDepartment());
                 intent.putExtra(PatientUpdateActivity.EXTRA_NURSEID, patient.getNurseId());
-                intent.putExtra(PatientUpdateActivity.EXTRA_ROOM, patient.getRoom());
+                intent.putExtra(PatientUpdateActivity.EXTRA_ROOM, patient.getRoom());*/
                 startActivityForResult(intent, UPDATE_PATIENT_REQUEST);
             }
         });

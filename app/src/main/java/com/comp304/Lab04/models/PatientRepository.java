@@ -2,24 +2,26 @@ package com.comp304.Lab04.models;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.comp304.Lab04.views.PatientActivity;
+import com.comp304.Lab04.views.PatientUpdateActivity;
 
 import java.util.List;
 
 public class PatientRepository {
     private final PatientDAO patientDao;
-    private LiveData<List<Patient>> patientsLiveDate;
+    private LiveData<List<Patient>> patientsLiveData;
 
 
     public PatientRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         patientDao = db.patientDAO();
-        patientsLiveDate =  patientDao.selectAll();
+        patientsLiveData =  patientDao.selectAll();
     }
 
     public void insert(Patient patient){
@@ -39,7 +41,11 @@ public class PatientRepository {
     }
 
     public LiveData<List<Patient>> getAllPatients(){
-        return patientsLiveDate;
+        return patientsLiveData;
+    }
+
+    public void loadPatient(int patientId, PatientUpdateActivity updateActivity) {
+        new GetPatientAsyncTask(patientDao, updateActivity).execute(patientId);
     }
 
     private static class InsertPatientAsyncTask
@@ -102,6 +108,29 @@ public class PatientRepository {
         }
     } //end of DeleteAllPatientAsyncTask
 
+
+    private static class GetPatientAsyncTask
+            extends AsyncTask<Integer, Void, Patient>{
+        private PatientDAO patientDAO;
+        private PatientUpdateActivity updateActivity;
+
+        //constructor of class
+        private GetPatientAsyncTask(PatientDAO patientDAO, PatientUpdateActivity updateActivity){
+            this.patientDAO = patientDAO;
+            this.updateActivity = updateActivity;
+        }
+
+        @Override
+        protected Patient doInBackground(Integer... patientId){
+            return patientDAO.select(patientId[0]);
+        }
+        @Override
+        protected void onPostExecute(Patient patient) {
+        // call the callback function here
+            this.updateActivity.loadInputText(patient);
+        }
+
+    } //end of UpdatePatientAsyncTask
 
 
 

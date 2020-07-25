@@ -28,8 +28,7 @@ public interface PatientDAO {
     @Query("DELETE FROM tb_patient")
     void deleteAll();
 
-
-
-
+    @Query("SELECT * FROM tb_patient WHERE patient_id = :patientId  LIMIT 1")
+    Patient select(int patientId);
 
 }

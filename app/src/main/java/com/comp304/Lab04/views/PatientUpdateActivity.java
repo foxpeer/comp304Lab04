@@ -29,6 +29,7 @@ public class PatientUpdateActivity extends AppCompatActivity {
             "com.comp304.Lab04.views.EXTRA_NURSEID";
 
     private PatientViewModel patientViewModel;
+    private int patientId;
 
     private TextView tvPatientId;
     private TextView tvFirstName;
@@ -48,6 +49,8 @@ public class PatientUpdateActivity extends AppCompatActivity {
         tvDepartment = findViewById(R.id.tvDepartment);
         tvRoom = findViewById(R.id.tvRoom);
         tvNurseId = findViewById(R.id.tvNurseId);
+
+
         //initialize patientViewModel
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
 
@@ -56,17 +59,32 @@ public class PatientUpdateActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.hasExtra(EXTRA_PATIENTID)){
             //Log.d("PatientUpdateActivity:", "tvPatientId: "+intent.getIntExtra(EXTRA_PATIENTID,0));
-            tvPatientId.setText(String.valueOf( intent.getIntExtra(EXTRA_PATIENTID,0)));
-           // Log.d("PatientUpdateActivity:", "patientId: "+ tvPatientId);
-            tvFirstName.setText(intent.getStringExtra(EXTRA_FIRSTNAME));
-            tvLastName.setText(intent.getStringExtra(EXTRA_LASTNAME));
-            tvDepartment.setText(intent.getStringExtra(EXTRA_DEPARTMENT));
-            tvNurseId.setText(String.valueOf( intent.getIntExtra(EXTRA_NURSEID,0)));
-            tvRoom.setText(intent.getStringExtra(EXTRA_ROOM));
+            patientId = intent.getIntExtra(EXTRA_PATIENTID,0);
+            patientViewModel.loadPatient(patientId, this);
+
+            // Log.d("PatientUpdateActivity:", "patientId: "+ tvPatientId);
+            /*
+            tvPatientId.setText(String.valueOf( patientId));
+            tvFirstName.setText(currentPatient.getFirstName());
+            tvLastName.setText(currentPatient.getLastName());
+            tvDepartment.setText(currentPatient.getDepartment());
+            tvNurseId.setText(String.valueOf(currentPatient.getNurseId()));
+            tvRoom.setText(currentPatient.getRoom());
+
+             */
             setTitle("Update Patient");
         } else{
             setTitle("Add Patient");
         }
+    }
+
+    public void loadInputText(Patient currentPatient) {
+        tvPatientId.setText(String.valueOf(currentPatient.getPatientId()));
+        tvFirstName.setText(currentPatient.getFirstName());
+        tvLastName.setText(currentPatient.getLastName());
+        tvDepartment.setText(currentPatient.getDepartment());
+        tvNurseId.setText(String.valueOf(currentPatient.getNurseId()));
+        tvRoom.setText(currentPatient.getRoom());
     }
 
     private void updatePatient() {
@@ -98,6 +116,5 @@ public class PatientUpdateActivity extends AppCompatActivity {
 
     public void UpdatePatientClick(View view){
         updatePatient();
-
     }
 }

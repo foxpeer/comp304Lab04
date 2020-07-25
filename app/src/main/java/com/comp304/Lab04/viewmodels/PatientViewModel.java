@@ -8,13 +8,13 @@ import androidx.lifecycle.LiveData;
 
 import com.comp304.Lab04.models.Patient;
 import com.comp304.Lab04.models.PatientRepository;
+import com.comp304.Lab04.views.PatientUpdateActivity;
 
 import java.util.List;
 
 public class PatientViewModel extends AndroidViewModel {
     private PatientRepository patientRepository;
     private LiveData<List<Patient>> allPatients;
-
 
     //constructor
     public PatientViewModel(@NonNull Application application) {
@@ -39,8 +39,19 @@ public class PatientViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Patient>> getAllPatients(){
+        addPatientSeedData();
         return allPatients;
+    }
+    private void addPatientSeedData(){
+        //add some seed data to database
+        insert(new Patient(1, "Lily", " Lee", "OB", 9001, "A123" ));
+        insert(new Patient(2, "Cathy", " Care", "KIDS", 9002, "E123" ));
+        insert(new Patient(3, "John", " Johns", "EMT", 9003, "F123" ));
+
     }
 
 
+    public void loadPatient(int patientId, PatientUpdateActivity updateActivity) {
+        patientRepository.loadPatient(patientId, updateActivity);
+    }
 }
