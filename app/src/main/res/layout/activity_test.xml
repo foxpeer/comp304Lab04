@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestActivity">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="150dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:text="Add a Test Record"
+        android:textSize="28dp"
+        android:textStyle="bold"/>
+
+
+    <EditText
+        android:id="@+id/etTestId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Test Id" />
+
+    <EditText
+        android:id="@+id/etPatientId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Patient Id" />
+
+    <EditText
+        android:id="@+id/etNurseId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Nurse Id"  />
+
+    <EditText
+        android:id="@+id/etBPL"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="BPL" />
+
+    <EditText
+        android:id="@+id/etBPH"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="BPH" />
+
+    <EditText
+        android:id="@+id/etTemp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Temperature /C" />
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Weight /kg" />
+    <EditText
+        android:id="@+id/etHeight"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@color/formfield"
+        android:hint="Height /cm" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="60dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btnSubmitPatient"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:background="@color/colorSubmit"
+            android:onClick="AddTestRecord"
+            android:text="Add"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/btnClearPatient"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorCancel"
+            android:onClick="CancelAddTest"
+            android:text="Cancel"
+            android:textSize="24dp"
+            />
+    </LinearLayout>
+</LinearLayout>

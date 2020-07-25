@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="150dp"
+      android:src="@drawable/logo" />
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_marginTop="10dp"
+      android:text="Select an option"
+      android:textAlignment="center"
+      android:textSize="32dp"
+      android:textStyle="bold"/>
+  <Button
+      android:id="@+id/btnDiaplayPatient"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:onClick="DisplayPatientClick"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:background="@color/colorSubmit"
+      android:textSize="24dp"
+      android:text="VIEW ALL PATIENT"/>
+  <Button
+      android:id="@+id/btnAddPatient"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:onClick="AddPatientClick"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:background="@color/colorSubmit"
+      android:textSize="24dp"
+      android:text="@string/btn1"/>
+
+  <!--
+  <Button
+      android:id="@+id/btnUpdatePatient"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:onClick="UpdatePatientClick"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:background="@color/colorSubmit"
+      android:textSize="24dp"
+      android:text="UPATE A PATIENT"/>
+      -->
+  <Button
+      android:id="@+id/btnViewTest"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:onClick="ViewTestClick"
+      android:layout_marginTop="20dp"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:background="@color/colorSubmit"
+      android:textSize="24dp"
+      android:text="VIEW TESTS"/>
+    <Button
+    android:id="@+id/btnAddNewTest"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:onClick="AddNewTestClick"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@color/colorSubmit"
+    android:textSize="24dp"
+    android:text="ADD A TEST"/>
+</LinearLayout>

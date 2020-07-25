@@ -1,0 +1,5 @@
+Dependencies：
+
+https://developer.android.com/jetpack/androidx/releases/room
+
+https://developer.android.com/jetpack/androidx/releases/lifecycle
