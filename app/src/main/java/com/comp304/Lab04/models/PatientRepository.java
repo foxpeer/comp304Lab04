@@ -14,10 +14,11 @@ import com.comp304.Lab04.views.PatientUpdateActivity;
 import java.util.List;
 
 public class PatientRepository {
+    //variables
     private final PatientDAO patientDao;
     private LiveData<List<Patient>> patientsLiveData;
 
-
+    //constructor
     public PatientRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         patientDao = db.patientDAO();
@@ -52,7 +53,7 @@ public class PatientRepository {
             extends AsyncTask<Patient, Void, Void>{
         private PatientDAO patientDAO;
 
-        //constructor of class
+        //constructor of InsertPatientAsyncTask class
         private InsertPatientAsyncTask(PatientDAO patientDAO){
             this.patientDAO = patientDAO;
         }
@@ -67,7 +68,7 @@ public class PatientRepository {
             extends AsyncTask<Patient, Void, Void>{
         private PatientDAO patientDAO;
 
-        //constructor of class
+        //constructor of UpdatePatientAsyncTask class
         private UpdatePatientAsyncTask(PatientDAO patientDAO){
             this.patientDAO = patientDAO;
         }
@@ -82,7 +83,7 @@ public class PatientRepository {
             extends AsyncTask<Patient, Void, Void>{
         private PatientDAO patientDAO;
 
-        //constructor of class
+        //constructor of DeletePatientAsyncTask class
         private DeletePatientAsyncTask(PatientDAO patientDAO){
             this.patientDAO = patientDAO;
         }
@@ -97,7 +98,7 @@ public class PatientRepository {
             extends AsyncTask<Void, Void, Void>{
         private PatientDAO patientDAO;
 
-        //constructor of class
+        //constructor of DeleteAllPatientAsyncTask class
         private DeleteAllPatientAsyncTask(PatientDAO patientDAO){
             this.patientDAO = patientDAO;
         }
@@ -114,7 +115,7 @@ public class PatientRepository {
         private PatientDAO patientDAO;
         private PatientUpdateActivity updateActivity;
 
-        //constructor of class
+        //constructor of GetPatientAsyncTask class
         private GetPatientAsyncTask(PatientDAO patientDAO, PatientUpdateActivity updateActivity){
             this.patientDAO = patientDAO;
             this.updateActivity = updateActivity;
@@ -129,8 +130,7 @@ public class PatientRepository {
         // call the callback function here
             this.updateActivity.loadInputText(patient);
         }
-
-    } //end of UpdatePatientAsyncTask
+    } //end of GetPatientAsyncTask class
 
 
 

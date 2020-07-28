@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Test {
-    @PrimaryKey (autoGenerate = false)
+    @PrimaryKey (autoGenerate = true)
     private int testId;
 
     @ForeignKey(entity = Patient.class, parentColumns = "patientId", childColumns ="patientId" )
@@ -27,6 +27,16 @@ public class Test {
         this.testId = testId;
         this.patientId = patient.getPatientId();
         this.nurseId = nurse.getNurseId();
+        this.BPL = BPL;
+        this.BPH = BPH;
+        this.temperature = temperature;
+        this.weight = weight;
+        this.height = height;
+    }
+    public Test(int testId, int patientId, int nurseId, int BPL, int BPH, double temperature, double weight, double height) {
+        this.testId = testId;
+        this.patientId = patientId;
+        this.nurseId = nurseId;
         this.BPL = BPL;
         this.BPH = BPH;
         this.temperature = temperature;

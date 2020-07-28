@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.comp304.Lab04.views.PatientActivity;
 
-@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 1)
+@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PatientDAO patientDAO();
