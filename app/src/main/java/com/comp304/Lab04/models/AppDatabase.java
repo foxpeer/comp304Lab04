@@ -9,12 +9,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.comp304.Lab04.views.PatientActivity;
-
-@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 2)
+@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PatientDAO patientDAO();
+    public abstract NurseDAO nurseDAO();
 
     private static volatile AppDatabase instance;
 
@@ -41,6 +40,9 @@ public abstract class AppDatabase extends RoomDatabase {
             new PopulateDbAsyncTask(instance).execute();
         }
     };
+
+
+
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
         private PatientDAO patientDAO;
 

@@ -9,5 +9,5 @@
     <color name="formfield">#DCFAFD</color>
     <color name="colorRegister">#B2B9DF</color>
     <color name="colorCardView">#8B9CF6</color>
-
+    <color name="colorMsg">#FF5722</color>
 </resources>

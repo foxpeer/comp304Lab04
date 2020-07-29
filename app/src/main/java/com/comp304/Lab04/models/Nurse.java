@@ -1,13 +1,15 @@
 package com.comp304.Lab04.models;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity (tableName = "tb_nurse")
 public class Nurse {
     @PrimaryKey(autoGenerate = true)
     @NonNull
+    @ColumnInfo(name = "nurse_id")
     private int nurseId;
     private String firstName;
     private String lastName;

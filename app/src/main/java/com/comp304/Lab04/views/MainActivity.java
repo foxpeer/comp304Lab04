@@ -6,15 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     String TAG = "MainActivity";
+    int nurseId;
+    String firstName;
+    String lastName;
+    TextView tvWelcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tvWelcome = findViewById(R.id.tvWelcome);
+       // nurseId = getIntent().getIntExtra("NurseId", 0 );
+        firstName = getIntent().getStringExtra("FirstName");
+        lastName = getIntent().getStringExtra("LastName");
+        tvWelcome.setText("Welcome "+ firstName + ", " +lastName+ " !");
     }
 
     //to add a new Patient
