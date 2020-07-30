@@ -30,7 +30,9 @@ public class PatientListActivity extends AppCompatActivity {
     public static final int ADD_PATIENT_REQUEST = 1;
     public static final int UPDATE_PATIENT_REQUEST =2;
 
+
  private PatientViewModel patientViewModel;
+ private int nurseId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +40,17 @@ public class PatientListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_patientlist);
         setTitle("All Patients");
 
+        nurseId = getIntent().getIntExtra("NurseId", 0 );
+
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
         final PatientAdapter adapter = new PatientAdapter();
         recyclerView.setAdapter(adapter);
-        patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
 
+        patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         patientViewModel.getAllPatients().observe(this, new Observer<List<Patient>>() {
             @Override
             public void onChanged(List<Patient> patients) {
@@ -71,17 +76,18 @@ public class PatientListActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-
+      //click the patient cardview to update patient information
         adapter.setOnItemClickListener(new PatientAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Patient patient) {
                 Intent intent = new Intent(PatientListActivity.this, PatientUpdateActivity.class);
                 // send patientId back to PatientUpdateActivity for update
                 intent.putExtra(PatientUpdateActivity.EXTRA_PATIENTID, patient.getPatientId());
+                intent.putExtra(PatientUpdateActivity.EXTRA_NURSEID, patient.getNurseId());
               /*  intent.putExtra(PatientUpdateActivity.EXTRA_FIRSTNAME, patient.getFirstName());
                 intent.putExtra(PatientUpdateActivity.EXTRA_LASTNAME, patient.getLastName());
                 intent.putExtra(PatientUpdateActivity.EXTRA_DEPARTMENT, patient.getDepartment());
-                intent.putExtra(PatientUpdateActivity.EXTRA_NURSEID, patient.getNurseId());
+
                 intent.putExtra(PatientUpdateActivity.EXTRA_ROOM, patient.getRoom());*/
                 startActivityForResult(intent, UPDATE_PATIENT_REQUEST);
             }
@@ -117,6 +123,7 @@ public class PatientListActivity extends AppCompatActivity {
         return true;
     }
 
+    //topright delete_all_patient
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -130,8 +137,10 @@ public class PatientListActivity extends AppCompatActivity {
 
     }
 
+    //Float Button to add Patient
     public void FloatBtnAddPatientClick(View view) {
         Intent intent = new Intent(this, PatientActivity.class);
+        intent.putExtra("NurseId", nurseId);
         startActivityForResult(intent, ADD_PATIENT_REQUEST );
     }
 }

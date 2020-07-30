@@ -41,12 +41,12 @@ public class PatientActivity extends AppCompatActivity {
 
     private PatientViewModel patientViewModel;
 
-    private TextView tvPatientId;
-    private TextView tvFirstName;
-    private TextView tvLastName;
-    private TextView tvDepartment;
-    private TextView tvRoom;
-    private TextView tvNurseId;
+    private EditText tvPatientId;
+    private EditText tvFirstName;
+    private EditText tvLastName;
+    private EditText tvDepartment;
+    private EditText tvRoom;
+    private EditText tvNurseId;
 
 
     int patientId;
@@ -66,6 +66,9 @@ public class PatientActivity extends AppCompatActivity {
         tvDepartment = findViewById(R.id.tvDepartment);
         tvRoom = findViewById(R.id.tvRoom);
         tvNurseId = findViewById(R.id.tvNurseId);
+
+        nurseId = getIntent().getIntExtra("NurseId", 0 );
+        tvNurseId.setText(String.valueOf(nurseId));
 
         //initialize patientViewModel
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
@@ -147,6 +150,7 @@ public class PatientActivity extends AppCompatActivity {
     }
 
     public void CancelAddPatient(View view) {
+        finish(); //back to previous activity
     }
 
 }

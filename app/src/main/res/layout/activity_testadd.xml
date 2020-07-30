@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TestActivity">
+    tools:context=".TestAddActivity">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
@@ -23,9 +23,8 @@
         android:textSize="28dp"
         android:textStyle="bold"/>
 
-
     <EditText
-        android:id="@+id/etTestId"
+        android:id="@+id/tvTestId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -35,7 +34,7 @@
         android:hint="Test Id" />
 
     <EditText
-        android:id="@+id/etPatientId"
+        android:id="@+id/tvPatientId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -45,7 +44,7 @@
         android:hint="Patient Id" />
 
     <EditText
-        android:id="@+id/etNurseId"
+        android:id="@+id/tvNurseId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -55,7 +54,7 @@
         android:hint="Nurse Id"  />
 
     <EditText
-        android:id="@+id/etBPL"
+        android:id="@+id/tvBPL"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -65,7 +64,7 @@
         android:hint="BPL" />
 
     <EditText
-        android:id="@+id/etBPH"
+        android:id="@+id/tvBPH"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -75,7 +74,7 @@
         android:hint="BPH" />
 
     <EditText
-        android:id="@+id/etTemp"
+        android:id="@+id/tvTemperature"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -84,7 +83,7 @@
         android:background="@color/formfield"
         android:hint="Temperature /C" />
     <EditText
-        android:id="@+id/etWeight"
+        android:id="@+id/tvWeight"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -93,7 +92,7 @@
         android:background="@color/formfield"
         android:hint="Weight /kg" />
     <EditText
-        android:id="@+id/etHeight"
+        android:id="@+id/tvHeight"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="60dp"
@@ -112,7 +111,7 @@
 
 
         <Button
-            android:id="@+id/btnSubmitPatient"
+            android:id="@+id/btnSubmitTest"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:background="@color/colorSubmit"
@@ -128,7 +127,6 @@
             android:background="@color/colorCancel"
             android:onClick="CancelAddTest"
             android:text="Cancel"
-            android:textSize="24dp"
-            />
+            android:textSize="24dp"/>
     </LinearLayout>
 </LinearLayout>

@@ -46,12 +46,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         tvNurseId = findViewById(R.id.tvNurseId);
         tvPassword = findViewById(R.id.tvPassword);
         tvMsg = findViewById(R.id.tvMsg);
-
-
 
         //initialize nurseViewModel
         nurseViewModel = ViewModelProviders.of(this).get(NurseViewModel.class);
@@ -89,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
     public void loginSucceed(Nurse nurse){
         Log.d("LoginActivity::loginSucceed", "login Succeed: " + nurse.toString());
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        //intent.putExtra("NurseId",  nurse.getNurseId());
+        intent.putExtra("NurseId",  nurse.getNurseId());
         intent.putExtra("FirstName",  nurse.getFirstName());
         intent.putExtra("LastName",  nurse.getLastName());
         startActivity(intent);

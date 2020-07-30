@@ -1,22 +1,30 @@
 package com.comp304.Lab04.models;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "tb_test")
 public class Test {
     @PrimaryKey (autoGenerate = true)
-    private int testId;
+    @ColumnInfo(name = "test_id")
+    private int testId ;
 
     @ForeignKey(entity = Patient.class, parentColumns = "patientId", childColumns ="patientId" )
+    @ColumnInfo(name = "patient_id")
     private int patientId;
 
     @ForeignKey(entity = Nurse.class, parentColumns = "nurseId", childColumns ="nurseId" )
+    @ColumnInfo(name = "nurse_id")
     private int nurseId;
 
+    @ColumnInfo(name = "bpl")
     private int BPL;
+
+    @ColumnInfo(name = "bph")
     private int BPH;
+
     private double temperature;
     private double weight;
     private double height;

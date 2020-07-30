@@ -16,6 +16,7 @@ public class Nurse {
     private String department;
     private String password;
 
+
     //constructor
     public Nurse(){}
     public Nurse(int nurseId, String firstName, String lastName, String department, String password) {
@@ -44,7 +45,7 @@ public class Nurse {
         return nurseId;
     }
 
-    public void setNurseId( @NonNull int nurseId) {
+    public void setNurseId(@NonNull int nurseId) {
         this.nurseId = nurseId;
     }
 

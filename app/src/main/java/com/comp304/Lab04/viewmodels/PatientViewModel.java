@@ -44,9 +44,9 @@ public class PatientViewModel extends AndroidViewModel {
     }
     private void addPatientSeedData(){
         //add some seed data to database
-        insert(new Patient(1, "Lily", " Lee", "OB", 9001, "A123" ));
-        insert(new Patient(2, "Cathy", " Care", "KIDS", 9002, "E123" ));
-        insert(new Patient(3, "John", " Johns", "EMT", 9003, "F123" ));
+        insert(new Patient(1001, "Lily", " Lee", "OB", 9001, "A123" ));
+        insert(new Patient(1002, "Cathy", " Care", "KIDS", 9002, "E123" ));
+        insert(new Patient(1003, "John", " Johns", "EMT", 9003, "F123" ));
 
     }
 

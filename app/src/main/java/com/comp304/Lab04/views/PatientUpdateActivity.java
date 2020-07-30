@@ -112,6 +112,7 @@ public class PatientUpdateActivity extends AppCompatActivity {
     }
 
     public void CancelUpdatePatient(View view) {
+        finish(); //back to previous activity
     }
 
     public void UpdatePatientClick(View view){

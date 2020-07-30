@@ -9,11 +9,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 3)
+@Database(entities = {Patient.class, Nurse.class, Test.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PatientDAO patientDAO();
     public abstract NurseDAO nurseDAO();
+    public abstract TestDAO testDAO();
 
     private static volatile AppDatabase instance;
 

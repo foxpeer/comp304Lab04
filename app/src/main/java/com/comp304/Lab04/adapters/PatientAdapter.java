@@ -34,7 +34,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientH
         Patient currentPatient = patients.get(position);
         Log.d("PatientList:", "currentPatient.getPatientId(): " + currentPatient.getPatientId());
         Log.d("PatientList:", "tvPatientId: " + holder.tvPatientId);
-        holder.tvPatientId.setText(String.valueOf(currentPatient.getPatientId())); //
+        holder.tvPatientId.setText("Patient Id: "+String.valueOf(currentPatient.getPatientId())); //
         holder.tvFirstName.setText(currentPatient.getFirstName());
         holder.tvLastName.setText(currentPatient.getLastName());
         holder.tvDepartment.setText("Dept:" + currentPatient.getDepartment());

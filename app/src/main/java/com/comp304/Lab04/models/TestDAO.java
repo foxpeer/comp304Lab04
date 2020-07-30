@@ -1,5 +1,6 @@
 package com.comp304.Lab04.models;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,33 +12,41 @@ import java.util.List;
 
 @Dao
 public interface TestDAO {
-    //Insert a list of Test, replacing stored tests
-    //using the same name
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertTests(List<Test> testList);
-
-    //Insert one new test
-    @Insert
-    public void insertTest(Test test);
+    void insert(Test test);
 
     @Update
-    public void updateTests(List<Test> testList);
-    @Update
-    public void updateTest(Test test);
+    void update(Test test);
 
     @Delete
-    public void deleteTest(Test test);
+    void delete(Test test);
+
+    @Query("SELECT * FROM tb_test ORDER BY test_id")
+    LiveData<List<Test>> selectAll();
+
+    @Query("DELETE FROM tb_test")
+    void deleteAll();
+
+    @Query("SELECT * FROM tb_test WHERE test_id = :testId  LIMIT 1")
+    Test select(int testId);
+
     @Delete
-    public void deleteTwoTest(Test test1, Test test2);
+    void delete(Test... test);
 
-    @Query("DELETE FROM test")
-    public void deleteAllTests();
+    @Query("DELETE FROM tb_test")
+    void deleteAllTests();
 
-    @Query("SELECT * FROM test ORDER BY testId")
-    public List<Test> displayAllTests();
+    @Query("DELETE FROM tb_test WHERE test_id=:testId")
+    void deleteTest(int testId);
 
-    @Query("SELECT * FROM test WHERE testId =:testId")
-    public Test findTestById(int testId);
+    @Query("SELECT * FROM tb_test WHERE patient_id=:patientId ORDER BY test_id")
+    LiveData<List<Test>> displayAllTests(int patientId);
+
+
+
+
+
 
 
 }
